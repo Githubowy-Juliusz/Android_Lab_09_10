@@ -8,17 +8,6 @@
     android:background="#232323"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/puzzleRestartButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Restart"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/puzzleMovesText"
         android:layout_width="wrap_content"
@@ -66,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        app:layout_constraintBottom_toTopOf="@+id/puzzlePosition7"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition1"
         app:srcCompat="@drawable/tile_4" />
@@ -75,7 +64,7 @@
         android:id="@+id/puzzlePosition5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/puzzlePosition8"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toStartOf="@+id/puzzlePosition6"
         app:layout_constraintStart_toEndOf="@+id/puzzlePosition4"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition2"
@@ -85,8 +74,8 @@
         android:id="@+id/puzzlePosition6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="110dp"
-        app:layout_constraintBottom_toTopOf="@+id/puzzlePosition9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition3"
         app:srcCompat="@drawable/tile_6" />
@@ -96,30 +85,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
-        android:layout_marginBottom="400dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puzzlePosition4"
         app:srcCompat="@drawable/tile_7" />
 
     <ImageView
         android:id="@+id/puzzlePosition8"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginBottom="400dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
         app:layout_constraintEnd_toStartOf="@+id/puzzlePosition9"
         app:layout_constraintStart_toEndOf="@+id/puzzlePosition7"
+        app:layout_constraintTop_toBottomOf="@+id/puzzlePosition5"
         app:srcCompat="@drawable/tile_8" />
 
     <ImageView
         android:id="@+id/puzzlePosition9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="110dp"
-        android:layout_marginBottom="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puzzlePosition6"
+        app:srcCompat="@drawable/tile_0" />
+
+    <ImageView
+        android:id="@+id/puzzleTouchLayer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/tile_0" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/puzzleRestartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Restart"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

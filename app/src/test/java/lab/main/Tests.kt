@@ -10,6 +10,9 @@ class Tests {
 		val game = PuzzleGame()
 		println(game.availableMoves)
 		println(game.blocks)
+		println(game.moves)
+		println(game.positions)
+		println(game.isSolved)
 		assertEquals("", "")
 	}
 }

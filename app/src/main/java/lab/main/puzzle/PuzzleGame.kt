@@ -12,10 +12,23 @@ class PuzzleGame {
 		4 to 4, 5 to 5, 6 to 6,
 		7 to 7, 8 to 8, 0 to 9
 	)
+	private val solved = _blocks.toMap()
+	val isSolved: Boolean
+		get() {
+			return _blocks == solved
+		}
 	val blocks: Map<Int, Int>
 		get() {
 			return _blocks.toMap()
 		}
+
+	//Inverse Map
+	val positions: Map<Int, Int>
+		get() {
+			return _blocks.entries.associateBy({ it.value }) { it.key }
+		}
+	var moves = 0
+		private set
 	val availableMoves: List<Direction>
 		get() {
 			val directions = mutableListOf<Direction>()
@@ -33,13 +46,20 @@ class PuzzleGame {
 
 	init {
 		for(i in (1..300)) {
-			move(availableMoves.random())
+			unconditionalMove(availableMoves.random())
 		}
 	}
 
 	fun move(direction: Direction) {
 		if(direction !in availableMoves)
-			error("Got wrong direction to move to")
+			return
+		if(isSolved)
+			return
+		unconditionalMove(direction)
+		moves++
+	}
+
+	private fun unconditionalMove(direction: Direction) {
 		val zeroPosition = _blocks[0] ?: error("Didn't find position for block 0")
 		val movedKey =
 			_blocks.filterValues { zeroPosition + direction.value == it }.keys.first()
