@@ -45,9 +45,9 @@ class PuzzleGame {
 		}
 
 	init {
-		for(i in (1..300)) {
-			unconditionalMove(availableMoves.random())
-		}
+		while(isSolved)
+			for(i in (1..300))
+				unconditionalMove(availableMoves.random())
 	}
 
 	fun move(direction: Direction) {

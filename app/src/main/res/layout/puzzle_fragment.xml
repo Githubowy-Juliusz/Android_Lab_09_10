@@ -8,17 +8,28 @@
     android:background="#232323"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/puzzleMovesText"
+    <Chronometer
+        android:id="@+id/puzzleTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:text="Moves: "
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/puzzleRestartButton" />
+
+    <TextView
+        android:id="@+id/puzzleMovesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:text="Moves: "
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/puzzleTimer" />
 
     <ImageView
         android:id="@+id/puzzlePosition1"
