@@ -137,9 +137,60 @@
         android:layout_marginTop="20dp"
         android:text="Restart"
         android:textSize="14sp"
+        android:stateListAnimator="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/puzzleDifficultyLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#232323"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/puzzleDifficultyButtonUnlimited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="No time limit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleDifficultyInfo" />
+
+        <Button
+            android:id="@+id/puzzleDifficultyButton10Min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="10 minutes"
+            app:layout_constraintEnd_toStartOf="@+id/puzzleDifficultyButton1Min"
+            app:layout_constraintStart_toEndOf="@+id/puzzleDifficultyButtonUnlimited"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleDifficultyInfo" />
+
+        <Button
+            android:id="@+id/puzzleDifficultyButton1Min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="1 minute"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleDifficultyInfo" />
+
+        <TextView
+            android:id="@+id/puzzleDifficultyInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="Choose difficulty"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
