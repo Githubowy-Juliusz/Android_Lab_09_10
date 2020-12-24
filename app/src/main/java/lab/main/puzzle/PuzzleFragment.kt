@@ -1,5 +1,6 @@
 package lab.main.puzzle
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
 import android.util.Log
@@ -41,6 +42,7 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 		)
 		val pictureSetter = PictureSetter()
 		var timeLimit = 0
+		val mediaPlayer = MediaPlayer.create(this.context, R.raw.sound)
 		fun updatePositions(game: PuzzleGame) {
 			if(game.isSolved) {
 				timer.stop()
@@ -62,7 +64,7 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 			updatePositions(game)
 			touchLayer.setOnTouchListener(
 				MovementTouchListener(
-					game, ::updatePositions
+					game, ::updatePositions, mediaPlayer
 				)
 			)
 			timer.base = SystemClock.elapsedRealtime()

@@ -1,12 +1,14 @@
 package lab.main.puzzle
 
+import android.media.MediaPlayer
 import android.view.MotionEvent
 import android.view.View
 import kotlin.math.abs
 
 class MovementTouchListener(
 	private val puzzleGame: PuzzleGame,
-	private val updatePositions: (PuzzleGame) -> Unit
+	private val updatePositions: (PuzzleGame) -> Unit,
+	private val mediaPlayer: MediaPlayer
 ) :
 	View.OnTouchListener {
 	private var x = 0f
@@ -31,6 +33,8 @@ class MovementTouchListener(
 					else
 						puzzleGame.move(Direction.UP)
 				}
+				mediaPlayer.seekTo(0)
+				mediaPlayer.start()
 				updatePositions(puzzleGame)
 			}
 			MotionEvent.ACTION_MOVE -> {
