@@ -3,7 +3,6 @@ package lab.main.puzzle
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Chronometer
@@ -30,17 +29,16 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 		val difficultyButton1Min =
 			view.findViewById<Button>(R.id.puzzleDifficultyButton1Min)
 		val positions = listOf(
-			view.findViewById<ImageView>(R.id.puzzlePosition1),
-			view.findViewById<ImageView>(R.id.puzzlePosition2),
-			view.findViewById<ImageView>(R.id.puzzlePosition3),
-			view.findViewById<ImageView>(R.id.puzzlePosition4),
-			view.findViewById<ImageView>(R.id.puzzlePosition5),
-			view.findViewById<ImageView>(R.id.puzzlePosition6),
-			view.findViewById<ImageView>(R.id.puzzlePosition7),
-			view.findViewById<ImageView>(R.id.puzzlePosition8),
-			view.findViewById<ImageView>(R.id.puzzlePosition9)
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition9), 9),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition1), 1),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition2), 2),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition3), 3),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition4), 4),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition5), 5),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition6), 6),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition7), 7),
+			Position(view.findViewById<ImageView>(R.id.puzzlePosition8), 8)
 		)
-		val pictureSetter = PictureSetter()
 		var timeLimit = 0
 		val mediaPlayer = MediaPlayer.create(this.context, R.raw.sound)
 		fun updatePositions(game: PuzzleGame) {
@@ -51,20 +49,15 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 				touchLayer.setOnTouchListener(null)
 			} else
 				movesText.text = "Moves: " + game.moves.toString()
-			val gamePositions = game.positions
-			positions.forEachIndexed { index, position ->
-				pictureSetter.set(
-					position, gamePositions[index + 1] ?: error("Update error")
-				)
-			}
 		}
 
 		fun startGame() {
 			val game = PuzzleGame()
+			val animator = Animator(positions, game, 200)
 			updatePositions(game)
 			touchLayer.setOnTouchListener(
 				MovementTouchListener(
-					game, ::updatePositions, mediaPlayer
+					animator, ::updatePositions, mediaPlayer
 				)
 			)
 			timer.base = SystemClock.elapsedRealtime()
@@ -78,7 +71,6 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 		}
 
 		timer.setOnChronometerTickListener {
-			Log.d("Hello", "Is this working as intended?")
 			if(timeLimit == 0)
 				return@setOnChronometerTickListener
 			val elapsedTime = (SystemClock.elapsedRealtime() - timer.base) / 1000

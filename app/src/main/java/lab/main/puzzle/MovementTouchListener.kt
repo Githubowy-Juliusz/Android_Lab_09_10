@@ -6,7 +6,7 @@ import android.view.View
 import kotlin.math.abs
 
 class MovementTouchListener(
-	private val puzzleGame: PuzzleGame,
+	private val animator: Animator,
 	private val updatePositions: (PuzzleGame) -> Unit,
 	private val mediaPlayer: MediaPlayer
 ) :
@@ -22,20 +22,23 @@ class MovementTouchListener(
 			MotionEvent.ACTION_UP -> {
 				val distance_x = event.x - x
 				val distance_y = event.y - y
+				var moved: Boolean
 				if(abs(distance_x) > abs(distance_y)) {
 					if(distance_x > 0)
-						puzzleGame.move(Direction.RIGHT)
+						moved = animator.move(Direction.RIGHT)
 					else
-						puzzleGame.move(Direction.LEFT)
+						moved = animator.move(Direction.LEFT)
 				} else {
 					if(distance_y > 0)
-						puzzleGame.move(Direction.DOWN)
+						moved = animator.move(Direction.DOWN)
 					else
-						puzzleGame.move(Direction.UP)
+						moved = animator.move(Direction.UP)
 				}
-				mediaPlayer.seekTo(0)
-				mediaPlayer.start()
-				updatePositions(puzzleGame)
+				if(moved) {
+					updatePositions(animator.game)
+					mediaPlayer.seekTo(0)
+					mediaPlayer.start()
+				}
 			}
 			MotionEvent.ACTION_MOVE -> {
 			}

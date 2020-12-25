@@ -50,13 +50,14 @@ class PuzzleGame {
 				unconditionalMove(availableMoves.random())
 	}
 
-	fun move(direction: Direction) {
+	fun move(direction: Direction): Boolean {
 		if(direction !in availableMoves)
-			return
+			return false
 		if(isSolved)
-			return
+			return false
 		unconditionalMove(direction)
 		moves++
+		return true
 	}
 
 	private fun unconditionalMove(direction: Direction) {
