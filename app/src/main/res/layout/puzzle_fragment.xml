@@ -33,91 +33,88 @@
 
     <ImageView
         android:id="@+id/puzzlePosition1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition2"
         app:layout_constraintTop_toBottomOf="@+id/puzzleMovesText"
         app:srcCompat="@drawable/tile_1" />
 
     <ImageView
         android:id="@+id/puzzlePosition2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition3"
-        app:layout_constraintStart_toEndOf="@+id/puzzlePosition1"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/puzzleMovesText"
         app:srcCompat="@drawable/tile_2" />
 
     <ImageView
         android:id="@+id/puzzlePosition3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="110dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/puzzlePosition2"
         app:layout_constraintTop_toBottomOf="@+id/puzzleMovesText"
         app:srcCompat="@drawable/tile_3" />
 
     <ImageView
         android:id="@+id/puzzlePosition4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition5"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition1"
         app:srcCompat="@drawable/tile_4" />
 
     <ImageView
         android:id="@+id/puzzlePosition5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition6"
-        app:layout_constraintStart_toEndOf="@+id/puzzlePosition4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/puzzlePosition2"
+        app:layout_constraintStart_toStartOf="@+id/puzzlePosition2"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition2"
         app:srcCompat="@drawable/tile_5" />
 
     <ImageView
         android:id="@+id/puzzlePosition6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/puzzlePosition5"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition3"
         app:srcCompat="@drawable/tile_6" />
 
     <ImageView
         android:id="@+id/puzzlePosition7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="110dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition8"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition4"
         app:srcCompat="@drawable/tile_7" />
 
     <ImageView
         android:id="@+id/puzzlePosition8"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toStartOf="@+id/puzzlePosition9"
-        app:layout_constraintStart_toEndOf="@+id/puzzlePosition7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="@+id/puzzlePosition5"
+        app:layout_constraintStart_toStartOf="@+id/puzzlePosition5"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition5"
         app:srcCompat="@drawable/tile_8" />
 
     <ImageView
         android:id="@+id/puzzlePosition9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="110dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/puzzlePosition8"
         app:layout_constraintTop_toBottomOf="@+id/puzzlePosition6"
         app:srcCompat="@drawable/tile_0" />
 
@@ -127,19 +124,31 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/puzzleRestartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:stateListAnimator="@null"
         android:text="Restart"
         android:textSize="14sp"
-        android:stateListAnimator="@null"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/puzzleChangeImageButton"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/puzzleChangeImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Change Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/puzzleRestartButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -185,6 +194,59 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:text="Choose difficulty"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/puzzleChangeImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#232323"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/puzzleGeraltImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Geralt"
+            app:layout_constraintEnd_toStartOf="@+id/puzzleCyberpunkImageButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleChangeImageInfo" />
+
+        <Button
+            android:id="@+id/puzzleCyberpunkImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Cyberpunk"
+            app:layout_constraintEnd_toStartOf="@+id/puzzleDefaultImageButton"
+            app:layout_constraintStart_toEndOf="@+id/puzzleGeraltImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleChangeImageInfo" />
+
+        <Button
+            android:id="@+id/puzzleDefaultImageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="Default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/puzzleCyberpunkImageButton"
+            app:layout_constraintTop_toBottomOf="@+id/puzzleChangeImageInfo" />
+
+        <TextView
+            android:id="@+id/puzzleChangeImageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="Choose image"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"

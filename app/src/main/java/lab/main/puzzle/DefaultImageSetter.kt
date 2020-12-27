@@ -3,7 +3,7 @@ package lab.main.puzzle
 import android.widget.ImageView
 import lab.main.R
 
-class PictureSetter {
+class DefaultImageSetter {
 	private val dict = mapOf(
 		0 to R.drawable.tile_0,
 		1 to R.drawable.tile_1,

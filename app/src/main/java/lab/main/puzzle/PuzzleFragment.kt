@@ -1,5 +1,6 @@
 package lab.main.puzzle
 
+import android.graphics.BitmapFactory
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.SystemClock
@@ -39,6 +40,16 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 			Position(view.findViewById<ImageView>(R.id.puzzlePosition7), 7),
 			Position(view.findViewById<ImageView>(R.id.puzzlePosition8), 8)
 		)
+		val changeImageLayout =
+			view.findViewById<ConstraintLayout>(R.id.puzzleChangeImageLayout)
+		val changeImageButton =
+			view.findViewById<Button>(R.id.puzzleChangeImageButton)
+		val geraltImageButton =
+			view.findViewById<Button>(R.id.puzzleGeraltImageButton)
+		val cpImageButton =
+			view.findViewById<Button>(R.id.puzzleCyberpunkImageButton)
+		val defaultImageButton =
+			view.findViewById<Button>(R.id.puzzleDefaultImageButton)
 		var timeLimit = 0
 		val mediaPlayer = MediaPlayer.create(this.context, R.raw.sound)
 		fun updatePositions(game: PuzzleGame) {
@@ -95,6 +106,39 @@ class PuzzleFragment : Fragment(R.layout.puzzle_fragment) {
 			timeLimit = 60 * 10
 			startGame()
 			difficultyLayout.visibility = View.GONE
+		}
+
+		val imageSetter = DefaultImageSetter()
+		changeImageButton.setOnClickListener {
+			changeImageLayout.visibility = View.VISIBLE
+		}
+		defaultImageButton.setOnClickListener {
+			positions.forEachIndexed { index, position ->
+				imageSetter.set(position.view as ImageView, index)
+			}
+			changeImageLayout.visibility = View.GONE
+		}
+		geraltImageButton.setOnClickListener {
+			val images = puzzlifyImage(
+				BitmapFactory.decodeResource(
+					resources, R.drawable.geralt
+				)
+			)
+			for(position in positions) {
+				(position.view as ImageView).setImageBitmap(images[position.number - 1])
+			}
+			changeImageLayout.visibility = View.GONE
+		}
+		cpImageButton.setOnClickListener {
+			val images = puzzlifyImage(
+				BitmapFactory.decodeResource(
+					resources, R.drawable.cyberpunk
+				)
+			)
+			for(position in positions) {
+				(position.view as ImageView).setImageBitmap(images[position.number - 1])
+			}
+			changeImageLayout.visibility = View.GONE
 		}
 	}
 }
